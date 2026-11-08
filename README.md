@@ -15,7 +15,8 @@ Hosting
 
 - GitHub Pages, deployed by `.github/workflows/pages.yml` on every push.
 - Custom domain: `CNAME` holds `resources.altruicity.com`. DNS needs a CNAME
-  record `resources` pointing at `tali-a11y.github.io`.
+  record `resources` pointing at `tali-a11y.github.io`. Pages source must be
+  set to "GitHub Actions" and the custom domain saved in the repo settings.
 
 Editing
 
