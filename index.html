@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magnetic Mission materials</title>
+<meta name="description" content="Download the Magnetic Mission workshop slides and worksheets from Jonah Halper's Kinus 2026 sessions.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EBD01C'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%23141414'/%3E%3C/svg%3E">
+<style>
+  @font-face{font-family:"Roc Grotesk Condensed";src:url(fonts/RocGroteskCondensedBold.woff2) format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Rustico";src:url(fonts/Rustico.woff2) format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Karu Regular";src:url(fonts/KaruRegular.woff2) format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Karu Bold";src:url(fonts/KaruBold.woff2) format("woff2");font-weight:400;font-display:swap}
+
+  :root{
+    --ink:#141414; --paper:#FFFFFF; --yellow:#EBD01C; --red:#C00000; --blush:#F5E7E6;
+    --grey:#6A6A6A; --warm-grey:#D8D2CC; --pill:#EFEDEA;
+    --display:"Roc Grotesk Condensed",Impact,"Arial Narrow",sans-serif;
+    --brush:"Rustico","Brush Script MT",cursive;
+    --body:"Karu Regular",Arial,sans-serif;
+    --label:"Karu Bold",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.45}
+  a{color:var(--ink)}
+  .band{background:var(--blush);}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  header{padding:28px 0 22px}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .wordmark{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.5px;text-decoration:none;position:relative;display:inline-block;line-height:1}
+  .wordmark b{font-weight:700;background:linear-gradient(transparent 48%,var(--yellow) 48%,var(--yellow) 94%,transparent 94%);padding:0 3px}
+  header .site{font-family:var(--label);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);text-decoration:none}
+
+  .hero{padding:48px 0 44px}
+  .eyebrow{font-family:var(--label);font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);margin:0 0 18px}
+  h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(44px,8.5vw,84px);line-height:.95;margin:0 0 18px;letter-spacing:.2px}
+  h1 .mark{background:linear-gradient(transparent 50%,var(--yellow) 50%,var(--yellow) 95%,transparent 95%);padding:0 4px 0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .brush{font-family:var(--brush);text-transform:uppercase;font-size:clamp(26px,4.4vw,38px);color:var(--red);margin:0 0 22px;line-height:1.15}
+  .lede{max-width:600px;margin:0;font-size:19px}
+
+  main{padding:0 0 64px}
+  .card{background:var(--paper);border:2px solid var(--warm-grey);padding:32px 28px;max-width:600px;margin:-28px auto 0;position:relative}
+  @media (min-width:760px){.card{margin-left:0}}
+  .card h2{font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:34px;line-height:1;margin:0 0 6px}
+  .card p.sub{margin:0 0 22px;color:var(--grey);font-size:16px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:520px){.row{grid-template-columns:1fr}}
+  label{display:block;font-family:var(--label);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin:0 0 6px}
+  .field{margin:0 0 16px}
+  input[type=text],input[type=email]{width:100%;font:inherit;font-size:17px;padding:12px 12px;border:2px solid var(--warm-grey);border-radius:0;background:#fff;color:var(--ink)}
+  input:focus{outline:none;border-color:var(--ink)}
+  .check{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);margin:6px 0 22px;font-family:var(--body);text-transform:none;letter-spacing:0}
+  .check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--ink);flex:0 0 auto}
+  .hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
+  button{font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:22px;letter-spacing:.5px;background:var(--ink);color:#fff;border:0;border-radius:0;padding:16px 26px;cursor:pointer;width:100%}
+  button:hover{background:#000}
+  button[disabled]{opacity:.6;cursor:default}
+  .err{color:var(--red);font-size:15px;margin:10px 0 0;display:none}
+  .fine{font-size:13px;color:var(--grey);margin:14px 0 0}
+
+  .files{display:none}
+  .files h2{font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:34px;line-height:1;margin:0 0 6px}
+  .files p.sub{margin:0 0 22px;color:var(--grey);font-size:16px}
+  .file{display:flex;align-items:center;justify-content:space-between;gap:16px;border:2px solid var(--warm-grey);padding:16px 18px;margin:0 0 12px;text-decoration:none}
+  .file:hover{border-color:var(--ink)}
+  .file .num{font-family:var(--display);font-weight:700;font-size:34px;color:var(--red);width:40px;line-height:1;flex:0 0 auto}
+  .file .name{font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:22px;line-height:1;flex:1 1 auto}
+  .file .name small{display:block;font-family:var(--body);text-transform:none;font-weight:400;font-size:14px;color:var(--grey);margin-top:4px}
+  .file .go{font-family:var(--label);font-size:12px;letter-spacing:2px;text-transform:uppercase;flex:0 0 auto}
+  .files .brush{font-size:clamp(22px,3.6vw,30px);margin:22px 0 0}
+
+  footer{border-top:1px solid var(--warm-grey);padding:26px 0 40px;font-size:14px;color:var(--grey)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+  footer a{color:var(--grey)}
+</style>
+</head>
+<body>
+
+<div class="band">
+  <header>
+    <div class="wrap">
+      <a class="wordmark" href="https://www.altruicity.com" aria-label="ALTRUICITY"><b>ALTRUICITY</b></a>
+      <a class="site" href="https://www.altruicity.com">altruicity.com</a>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Kinus Hashluchim 2026 // Magnetic Mission</p>
+      <h1>The <span class="mark">slides and worksheets</span> from Jonah's sessions.</h1>
+      <p class="brush">Thanks for being in the room.</p>
+      <p class="lede">All three workshop decks and the full worksheet pack, as presented at the Kinus. Tell us who you are and the files open right here. We will also email you the links so you have them on your phone.</p>
+    </div>
+  </section>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <form class="card" id="gate" novalidate>
+      <h2>Who should we send them to?</h2>
+      <p class="sub">Name and email, then the files are yours.</p>
+      <div class="row">
+        <div class="field"><label for="first">First name</label><input id="first" name="first_name" type="text" autocomplete="given-name" required></div>
+        <div class="field"><label for="last">Last name</label><input id="last" name="last_name" type="text" autocomplete="family-name" required></div>
+      </div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      <div class="field"><label for="house">Chabad house or city <span style="letter-spacing:0;text-transform:none;font-family:var(--body)">(optional)</span></label><input id="house" name="chabad_house" type="text" autocomplete="organization"></div>
+      <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <label class="check"><input id="optin" name="opt_in" type="checkbox" value="yes"><span>Yes, send me ALTRUICITY resources on donor engagement for shluchim. Optional. The files come either way.</span></label>
+      <button type="submit" id="submitBtn">Send me the materials</button>
+      <p class="err" id="err">Please enter your first name, last name and a valid email.</p>
+      <p class="fine">We use your details only to send you these files, unless you tick the box above. Questions: <a href="mailto:jonah@altruicity.com">jonah@altruicity.com</a></p>
+    </form>
+
+    <section class="card files" id="files" aria-live="polite">
+      <h2>Done. Here are your files.</h2>
+      <p class="sub" id="sentTo">The links are on their way to your inbox too.</p>
+      <div id="fileList"></div>
+      <p class="brush">Use them well.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>ALTRUICITY. Fundraising strategy for the Jewish nonprofit world.</span>
+    <span><a href="https://www.altruicity.com">www.altruicity.com</a> &nbsp;·&nbsp; <a href="mailto:jonah@altruicity.com">jonah@altruicity.com</a></span>
+  </div>
+</footer>
+
+<script>
+  // Where the form posts. A Zapier workflow records the request, tags the
+  // contact in Mailchimp when they opted in, and emails the links.
+  var HOOK_URL = "https://hooks.zapier.com/hooks/catch/14026747/CDIHVw2RxgQo7fsDE/";
+
+  // The files. Change a Drive id here to swap a PDF.
+  var FILES = [
+    { n:"1", name:"Workshop 1 slides",  sub:"Shared North and clarifying your priorities",            id:"1seGS-TSyzYo3Ygn4uQ9Zq6zA6zUARugS" },
+    { n:"2", name:"Workshop 2 slides",  sub:"Donor engagement designed around your priorities",       id:"1HTf7DT2HPbU6dNC8oiCxAHMgbGERTh1J" },
+    { n:"3", name:"Workshop 3 slides",  sub:"Qualifying donors and building the cultivation plan",    id:"1IFZ6VPcF_ldQ09uu8A1YFXNRWiOKmg28" },
+    { n:"4", name:"Worksheets, all",    sub:"The full worksheet pack from all three sessions",        id:"1jCmh7OEKufPNcLsNaoPFLMTYixXEjfHR" }
+  ];
+  var KEY = "mm_kinus_2026_unlocked";
+
+  function driveUrl(id){ return "https://drive.google.com/file/d/" + id + "/view"; }
+
+  function renderFiles(email){
+    var list = document.getElementById("fileList");
+    list.innerHTML = "";
+    FILES.forEach(function(f){
+      var a = document.createElement("a");
+      a.className = "file"; a.href = driveUrl(f.id); a.target = "_blank"; a.rel = "noopener";
+      a.innerHTML = '<span class="num">' + f.n + '</span><span class="name">' + f.name + '<small>' + f.sub + '</small></span><span class="go">Open PDF</span>';
+      list.appendChild(a);
+    });
+    var sent = document.getElementById("sentTo");
+    sent.textContent = email ? ("We also emailed these links to " + email + ".") : "Welcome back. Your files are below.";
+    document.getElementById("gate").style.display = "none";
+    document.getElementById("files").style.display = "block";
+  }
+
+  // Returning visitor: skip the form.
+  try { if (localStorage.getItem(KEY)) { renderFiles(""); } } catch (e) {}
+
+  document.getElementById("gate").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var first = document.getElementById("first").value.trim();
+    var last  = document.getElementById("last").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var house = document.getElementById("house").value.trim();
+    var optin = document.getElementById("optin").checked ? "yes" : "no";
+    var hp    = document.getElementById("website").value;
+    var err   = document.getElementById("err");
+    var ok = first && last && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!ok) { err.style.display = "block"; return; }
+    err.style.display = "none";
+    var btn = document.getElementById("submitBtn");
+    btn.disabled = true; btn.textContent = "One moment";
+
+    var body = new URLSearchParams({
+      first_name: first, last_name: last, email: email, chabad_house: house,
+      opt_in: optin, website: hp, source: "resources.altruicity.com",
+      page: location.pathname, submitted_at: new Date().toISOString()
+    });
+    var done = function(){
+      try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      renderFiles(email);
+      window.scrollTo({ top: document.getElementById("files").offsetTop - 24, behavior: "smooth" });
+    };
+    if (hp || HOOK_URL.indexOf("__") === 0) { done(); return; }
+    fetch(HOOK_URL, { method: "POST", mode: "no-cors", body: body }).then(done, done);
+  });
+</script>
+</body>
+</html>
