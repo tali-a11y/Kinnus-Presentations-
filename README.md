@@ -19,6 +19,6 @@ Hosting
 
 Editing
 
-- Links to the files live in the `FILES` list near the top of the script in
-  `index.html`. Change a Drive file id there to swap a PDF.
+- The four PDFs live in `files/`. To update one, replace the file and keep the name. The `FILES` list in
+  `index.html` holds the labels.
 - Fonts are the ALTRUICITY house fonts from the design system (`fonts/`).
