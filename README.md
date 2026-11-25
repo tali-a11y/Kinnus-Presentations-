@@ -1,7 +1,7 @@
 # resources.altruicity.com
 
 Static download gate for ALTRUICITY workshop materials. Currently serves the
-Kinus 2026 Magnetic Mission slides and worksheets.
+Kinus 2026 Magnetic Mission presentations (recordings), slides, and worksheets.
 
 How it works
 
@@ -22,4 +22,8 @@ Editing
 
 - The four PDFs live in `files/`. To update one, replace the file and keep the name. The `FILES` list in
   `index.html` holds the labels.
+- The three recordings are on Vimeo (unlisted, hosted by the Kinus). The `VIDEOS` list in
+  `index.html` holds each one's Vimeo id, link hash, thumbnail and label. The page shows the
+  thumbnail and loads the Vimeo player in place when someone presses play. The same three
+  links are in the email the Zapier workflow sends, so change them in both places.
 - Fonts are the ALTRUICITY house fonts from the design system (`fonts/`).

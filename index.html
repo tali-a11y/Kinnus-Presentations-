@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Magnetic Mission materials</title>
-<meta name="description" content="Download the Magnetic Mission workshop slides and worksheets from Jonah Halper's Kinus 2026 sessions.">
+<meta name="description" content="The Magnetic Mission presentations, slides, and worksheets from Jonah Halper's Kinus 2026 sessions.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EBD01C'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%23141414'/%3E%3C/svg%3E">
 <style>
@@ -64,10 +64,33 @@
   .files p.sub{margin:0 0 22px;color:var(--grey);font-size:16px}
   .file{display:flex;align-items:center;justify-content:space-between;gap:16px;border:2px solid var(--warm-grey);padding:16px 18px;margin:0 0 12px;text-decoration:none}
   .file:hover{border-color:var(--ink)}
-  .file .num{font-family:var(--display);font-weight:700;font-size:34px;color:var(--red);width:40px;line-height:1;flex:0 0 auto}
-  .file .name{font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:22px;line-height:1;flex:1 1 auto}
-  .file .name small{display:block;font-family:var(--body);text-transform:none;font-weight:400;font-size:14px;color:var(--grey);margin-top:4px}
-  .file .go{font-family:var(--label);font-size:12px;letter-spacing:2px;text-transform:uppercase;flex:0 0 auto}
+  .file .num,.video .num{font-family:var(--display);font-weight:700;font-size:34px;color:var(--red);width:40px;line-height:1;flex:0 0 auto}
+  .file .name,.video .name{font-family:var(--display);text-transform:uppercase;font-weight:700;font-size:22px;line-height:1;flex:1 1 auto}
+  .file .name small,.video .name small{display:block;font-family:var(--body);text-transform:none;font-weight:400;font-size:14px;color:var(--grey);margin-top:4px}
+  .file .go,.video .go{font-family:var(--label);font-size:12px;letter-spacing:2px;text-transform:uppercase;flex:0 0 auto}
+
+  /* A recording: thumbnail with a play button. The Vimeo player loads in place on click. */
+  .video{border:2px solid var(--warm-grey);margin:0 0 16px}
+  .video .stage{position:relative;aspect-ratio:1280/739;background:var(--ink);overflow:hidden}
+  .video .stage img,.video .stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .video .stage img{object-fit:cover}
+  /* The whole still is the button. */
+  .video .play{position:absolute;inset:0;width:100%;height:100%;padding:0;background:transparent;display:flex;align-items:center;justify-content:center}
+  .video .play:hover{background:rgba(20,20,20,.22)}
+  .video .play:focus-visible{outline:4px solid var(--yellow);outline-offset:-4px}
+  .video .play .btn{width:68px;height:68px;background:var(--yellow);display:flex;align-items:center;justify-content:center;transition:transform .12s ease}
+  .video .play:hover .btn{transform:scale(1.08)}
+  .video .play .btn::before{content:"";border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent var(--ink);margin-left:5px}
+  .video .play .len{position:absolute;right:10px;bottom:10px;background:var(--ink);color:#fff;font-family:var(--label);font-size:12px;letter-spacing:2px;text-transform:uppercase;line-height:1;padding:7px 9px}
+  @media (prefers-reduced-motion:reduce){.video .play .btn{transition:none}}
+  .video .meta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px}
+  @media (max-width:520px){
+    .video .meta{flex-wrap:wrap;row-gap:10px}
+    .video .name{flex:1 1 0;min-width:0}
+    .video .go{flex:0 0 100%;padding-left:56px}
+    .video .play .btn{width:54px;height:54px}
+    .video .play .btn::before{border-width:10px 0 10px 17px;margin-left:4px}
+  }
   .files .subhead{font-family:var(--label);font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);margin:28px 0 14px}
   .files .brush{font-size:clamp(22px,3.6vw,30px);margin:22px 0 0}
 
@@ -88,9 +111,9 @@
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow">Kinus Hashluchim 2026 // Magnetic Mission</p>
-      <h1>The <span class="mark">slides and worksheets</span> from Jonah's sessions.</h1>
+      <h1>The <span class="mark">presentations, slides, and worksheets</span> from Jonah's sessions.</h1>
       <p class="brush">Thanks for being in the room.</p>
-      <p class="lede">All three workshop decks and the full worksheet pack, as presented at the Kinus. Tell us who you are and the files open right here. We will also email you the links so you have them on your phone.</p>
+      <p class="lede">The recordings of all three presentations, the slide decks and the full worksheet pack, as presented at the Kinus. Tell us who you are and they open right here. We will also email you the links so you have them on your phone.</p>
     </div>
   </section>
 </div>
@@ -118,7 +141,7 @@
       <h2>Done. Here are your files.</h2>
       <p class="sub" id="sentTo">The links are on their way to your inbox too.</p>
       <div id="fileList"></div>
-      <h3 class="subhead">Watch the sessions</h3>
+      <h3 class="subhead">Watch the presentations</h3>
       <div id="videoList"></div>
       <p class="brush">Use them well.</p>
     </section>
@@ -146,10 +169,14 @@
     { n:"4", name:"Worksheets, all",    sub:"The full worksheet pack from all three sessions",        url:"files/magnetic-mission-worksheets.pdf" }
   ];
   // The session recordings, hosted on Vimeo by the Kinus. Unlisted links.
+  // id and h are the two parts of the Vimeo link; thumb is the still Vimeo serves for it.
   var VIDEOS = [
-    { n:"1", name:"Workshop 1 recording", sub:"The Desperation Trap: how to move from chasing to attracting major gift donors (45 min)", url:"https://vimeo.com/1245614190/20b297c6d0" },
-    { n:"2", name:"Workshop 2 recording", sub:"Turning your calendar into a cultivation system (49 min)",                              url:"https://vimeo.com/1245616818/8c2a80a63d" },
-    { n:"3", name:"Workshop 3 recording", sub:"Donor qualification and building mission partnerships (84 min)",                        url:"https://vimeo.com/1245595872/7dbd67b898" }
+    { n:"1", name:"Workshop 1 presentation", sub:"The Desperation Trap: how to move from chasing to attracting major gift donors", len:"45 min",
+      id:"1245614190", h:"20b297c6d0", thumb:"https://i.vimeocdn.com/video/2225133766-bbf5b7eca49ce6aed231d5ddb69a1e63db795e75863d811a11268c474317894a-d_1280?region=us" },
+    { n:"2", name:"Workshop 2 presentation", sub:"Turning your calendar into a cultivation system", len:"49 min",
+      id:"1245616818", h:"8c2a80a63d", thumb:"https://i.vimeocdn.com/video/2225129737-419619fc01b477d38e462c9a1388215d5645b5fae981fb6c76424ef4baa1cd35-d_1280?region=us" },
+    { n:"3", name:"Workshop 3 presentation", sub:"Donor qualification and building mission partnerships", len:"84 min",
+      id:"1245595872", h:"7dbd67b898", thumb:"https://i.vimeocdn.com/video/2224773102-599092e730c05e2be027f7a5ea55fd6d92605fda1334ac4dc53ba12f43fa6d4f-d_1280?region=us" }
   ];
   var KEY = "mm_kinus_2026_unlocked";
 
@@ -165,10 +192,28 @@
     var vlist = document.getElementById("videoList");
     vlist.innerHTML = "";
     VIDEOS.forEach(function(v){
-      var a = document.createElement("a");
-      a.className = "file"; a.href = v.url; a.target = "_blank"; a.rel = "noopener";
-      a.innerHTML = '<span class="num">' + v.n + '</span><span class="name">' + v.name + '<small>' + v.sub + '</small></span><span class="go">Watch</span>';
-      vlist.appendChild(a);
+      var label = v.name + ": " + v.sub;
+      var box = document.createElement("div"); box.className = "video";
+      var stage = document.createElement("div"); stage.className = "stage";
+      // If Vimeo ever drops the still, the dark tile and play button remain.
+      var img = document.createElement("img"); img.alt = ""; img.onerror = function(){ img.remove(); }; img.src = v.thumb;
+      var play = document.createElement("button"); play.type = "button"; play.className = "play";
+      play.setAttribute("aria-label", "Play " + label + " (" + v.len + ")");
+      play.innerHTML = '<span class="btn"></span><span class="len">' + v.len + '</span>';
+      play.addEventListener("click", function(){
+        var f = document.createElement("iframe");
+        f.src = "https://player.vimeo.com/video/" + v.id + "?h=" + v.h + "&autoplay=1&title=0&byline=0&portrait=0";
+        f.title = label;
+        f.allow = "autoplay; fullscreen; picture-in-picture";
+        f.allowFullscreen = true;
+        stage.innerHTML = ""; stage.appendChild(f);
+      });
+      stage.appendChild(img); stage.appendChild(play);
+      var meta = document.createElement("div"); meta.className = "meta";
+      meta.innerHTML = '<span class="num">' + v.n + '</span><span class="name">' + v.name + '<small>' + v.sub + '</small></span>' +
+        '<a class="go" href="https://vimeo.com/' + v.id + '/' + v.h + '" target="_blank" rel="noopener">Open in Vimeo</a>';
+      box.appendChild(stage); box.appendChild(meta);
+      vlist.appendChild(box);
     });
     var sent = document.getElementById("sentTo");
     sent.textContent = email ? ("We also emailed these links to " + email + ".") : "Welcome back. Your files are below.";
